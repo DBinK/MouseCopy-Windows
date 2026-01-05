@@ -8,4 +8,4 @@ add_executable(MouseCopy
     src/tray.cpp
 )
 
-target_link_libraries(MouseCopy user32 shell32)
+target_link_libraries(MouseCopy user32 shell32 advapi32)
