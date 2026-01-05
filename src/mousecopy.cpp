@@ -80,18 +80,31 @@ LRESULT CALLBACK MouseProc(int nCode, WPARAM wParam, LPARAM lParam) {
             }
             break;
 
-        case WM_MBUTTONUP:
-            if (leftPressed && dragged) {
-                SendCtrlKey('V');
-                return 1;
-            }
-            break;
+        // case WM_MBUTTONUP:  // 中键覆盖粘贴, 不好用就去掉了
+        //     if (leftPressed && dragged) {
+        //         SendCtrlKey('V');
+        //         return 1;
+        //     }
+        //     break;
 
         case WM_RBUTTONDOWN:
-        case WM_MBUTTONDOWN:
+        // case WM_MBUTTONDOWN:  // 中键覆盖粘贴, 不好用就去掉了
             if (leftPressed)
                 return 1;
             break;
+
+
+        case WM_XBUTTONDOWN:
+            if (leftPressed) {
+                WORD button = HIWORD(info->mouseData);
+                if (button == XBUTTON1)
+                    SendCtrlKey('Z'); // 撤销
+                else if (button == XBUTTON2)
+                    SendCtrlKey('Y'); // 重做
+                return 1; // 吞掉原生事件
+            }
+            break;
+
         }
     }
 
