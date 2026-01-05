@@ -71,6 +71,15 @@ LRESULT CALLBACK MouseProc(int nCode, WPARAM wParam, LPARAM lParam) {
             break;
 
         case WM_RBUTTONUP:
+            
+            if (g_enabled) {  // 模拟 Shift 松开, 以实现按住右键滚轮横滚,Shift 的释放
+                INPUT in = {};
+                in.type = INPUT_KEYBOARD;
+                in.ki.wVk = VK_SHIFT;
+                in.ki.dwFlags = KEYEVENTF_KEYUP;
+                SendInput(1, &in, sizeof(INPUT));
+            }
+
             if (leftPressed) {
                 if (dragged)
                     SendCtrlKey('C');
@@ -89,6 +98,14 @@ LRESULT CALLBACK MouseProc(int nCode, WPARAM wParam, LPARAM lParam) {
 
         case WM_RBUTTONDOWN:
         // case WM_MBUTTONDOWN:  // 中键覆盖粘贴, 不好用就去掉了
+
+            if (g_enabled) {  // 模拟 Shift 按下, 以实现按住右键滚轮横滚
+                INPUT in = {};
+                in.type = INPUT_KEYBOARD;
+                in.ki.wVk = VK_SHIFT;
+                SendInput(1, &in, sizeof(INPUT));
+            }
+
             if (leftPressed)
                 return 1;
             break;
