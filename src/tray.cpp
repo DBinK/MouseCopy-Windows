@@ -1,5 +1,7 @@
 #include "tray.h"
+#include "resource.h"
 #include <shellapi.h>
+
 
 #define WM_TRAY (WM_USER + 1)
 #define ID_ENABLE  1001
@@ -67,7 +69,10 @@ HWND CreateTrayWindow(HINSTANCE hInst) {
     nid.uID = 1;
     nid.uFlags = NIF_MESSAGE | NIF_ICON | NIF_TIP;
     nid.uCallbackMessage = WM_TRAY;
-    nid.hIcon = LoadIcon(NULL, IDI_APPLICATION);
+    // nid.hIcon = LoadIcon(NULL, IDI_APPLICATION);
+    nid.hIcon = LoadIcon(GetModuleHandle(NULL),
+                     MAKEINTRESOURCE(IDI_MOUSECOPY));
+
     lstrcpy(nid.szTip, "MouseCopy");
 
     Shell_NotifyIcon(NIM_ADD, &nid);
