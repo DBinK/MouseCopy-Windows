@@ -1,6 +1,6 @@
 # MouseCopy-Windows
 
-MouseCopy 是一个轻量级的 Windows 系统托盘工具，通过鼠标组合键实现快速复制与粘贴等操作。
+MouseCopy 让你只用鼠标就能实现复制、粘贴、撤销等功能，全程无需键盘介入
 
 ## 功能特点
 
@@ -10,12 +10,14 @@ MouseCopy 是一个轻量级的 Windows 系统托盘工具，通过鼠标组合�
 
 ## 交互逻辑
 
-1. **按住左键不拖动，同时再点击右键** → 执行**粘贴**操作  
-2. **按住左键拖动以选中文本，同时再点击右键** → 执行**复制**操作  
-3. ~~**按住左键拖动选中文本，同时再点击中键** → 执行**覆盖粘贴**操作~~（因操作体验不佳，已移除）  
-4. **按住左键的同时点击鼠标侧键1（后退键）** → 执行**撤销**操作  
-5. **按住左键的同时点击鼠标侧键2（前进键）** → 执行**重做**操作  
-6. **按住右键的同时滚动滚轮** → 触发**水平滚动**功能  
+- **按住左键不拖动，再点击右键** → **粘贴**  
+- **按住左键拖动选中文本，再点击右键** → **复制**  
+- ~~**按住左键拖动选中文本，再点击中键** → **覆盖粘贴**~~（因操作不顺手，已移除）  
+---
+- **按住左键时点击侧键1（后退键）** → **撤销**  
+- **按住左键时点击侧键2（前进键）** → **重做**  
+---
+- **按住右键时滚动滚轮** → **水平滚动**  
 
 ## 已知问题
 
@@ -29,7 +31,7 @@ pwsh .\build.ps1
 
 # MouseCopy-Windows
 
-MouseCopy is a lightweight Windows tray application that enables quick copy and paste actions through intuitive mouse gestures.
+MouseCopy enables copy, paste, undo, and other actions using just your mouse — no keyboard needed
 
 ## Features
 
@@ -39,12 +41,14 @@ MouseCopy is a lightweight Windows tray application that enables quick copy and 
 
 ## Interaction Logic
 
-1. **Hold left button (without dragging), then click right button** → **Paste**  
-2. **Hold left button, drag to select text, then click right button** → **Copy**  
-3. ~~**Hold left button, drag to select text, then click middle button** → **Overwrite Paste**~~ (Removed — found to be unintuitive)  
-4. **Hold left button and press Side Button 1 (Back)** → **Undo**  
-5. **Hold left button and press Side Button 2 (Forward)** → **Redo**  
-6. **Hold right button and scroll the wheel** → **Horizontal scrolling**  
+- **Hold left button (no drag), then right-click** → **Paste**  
+- **Hold left button, drag to select text, then right-click** → **Copy**  
+- ~~**Hold left button, drag to select text, then middle-click** → **Overwrite Paste**~~ (Removed — awkward in practice)  
+---
+- **Hold left button and press Side Button 1 (Back)** → **Undo**  
+- **Hold left button and press Side Button 2 (Forward)** → **Redo**  
+---
+- **Hold right button and scroll wheel** → **Horizontal scroll**  
 
 ## Known Issues
 
