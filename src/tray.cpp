@@ -71,7 +71,7 @@ LRESULT CALLBACK TrayProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp) {
             AppendMenu(menu, MF_SEPARATOR, 0, NULL);
 
             // GitHub 链接
-            AppendMenu(menu, MF_STRING, ID_OPEN_GITHUB, "GitHub");
+            AppendMenu(menu, MF_STRING, ID_OPEN_GITHUB, "About");
 
             // Exit
             AppendMenu(menu, MF_STRING, ID_EXIT, "Exit");
